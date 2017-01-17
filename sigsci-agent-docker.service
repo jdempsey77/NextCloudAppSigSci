@@ -1,0 +1,12 @@
+[Unit]
+Description=sigsci-agent container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a sigsci-agent
+ExecStop=/usr/bin/docker stop -t 2 sigsci-agent
+
+[Install]
+WantedBy=default.target
