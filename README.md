@@ -11,7 +11,7 @@ The start.sh is a simple script for doing some customizations. I use it to start
 **contrib**
 I'll usually create a .dockerignore file that will ignore adding the contrib to the final docker container and put files that I would like to copy into the container in this folder. For example in my demo container I've put a custom splash screen for the default index.html for Apache2. This file gets copied to /var/www/html/index.html.
 
-![signalsciences_example_screenshot.png "SigSci Default HTML"] (screenshots/signalsciences_example_screenshot.png)
+![SigSci Default HTML](screenshots/signalsciences_example_screenshot.png)
 
 **sigsci-agent-docker.service**
 For people using systemctl, i.e. not Kubernetes, I've made an example service that you can add in. This service will ensure that the docker container automatically comes back up on restart.
@@ -27,28 +27,28 @@ Folder containing some exported examples of a Deployment, Service, and Pod.
 
 ## Example Deployment creation
 
-![kube-create-deployment.png "Creating a Deployment"] (screenshots/kube-create-deployment.png)
+![Creating a Deployment](screenshots/kube-create-deployment.png)
 
 ## Running the container
 
-make run DOCKERUSER=trickyhu DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6 SIGSCI_ACCESSKEY=*ACCESSKEY* SIGSCI_SECRETKEY=*SECRETKEY* SIGSCI_RPCADDRESS="unix:/var/run/sigsci/agent" DOCKERMOUNT=/var/run/sigsci/agent
+`make run DOCKERUSER=trickyhu DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6 SIGSCI_ACCESSKEY=*ACCESSKEY* SIGSCI_SECRETKEY=*SECRETKEY* SIGSCI_RPCADDRESS="unix:/var/run/sigsci/agent" DOCKERMOUNT=/var/run/sigsci/agent`
 
 ## Building Docker image
 
 You can use the Makefile to build the Docker Container
 Make Example:
 
-make build DOCKERUSER=YOURDOCUERUSER DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6
+`make build DOCKERUSER=YOURDOCUERUSER DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6`
 
 Example:
 
-make build  DOCKERUSER=MYUSER DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6 
+`make build  DOCKERUSER=MYUSER DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6`
 
-###Deploying to Docker
+### Deploying to Docker
 
 You can also use the Makefile to deploy the created container to Docker Hub
 
-make deploy DOCKERUSER=*USERNAME* DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6
+`make deploy DOCKERUSER=*USERNAME* DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=1.14.4-1.4.6`
 
 ### Exposing Unix Domain Socket
 
@@ -56,4 +56,4 @@ Although the recommended way is to have the agent and module be in the same cont
 
 Example:
 
-make run DOCKERUSER=trickyhu DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=0.1 SIGSCI_ACCESSKEY=*ACCESSKEY* SIGSCI_SECRETKEY=*SECRETKEY* SIGSCI_RPCADDRESS="unix:/var/run/sigsci/" DOCKERMOUNT=/var/run/sigsci
+`make run DOCKERUSER=trickyhu DOCKERNAME=sigsci-agent-ubuntu1604 DOCKERTAG=0.1 SIGSCI_ACCESSKEY=*ACCESSKEY* SIGSCI_SECRETKEY=*SECRETKEY* SIGSCI_RPCADDRESS="unix:/var/run/sigsci/" DOCKERMOUNT=/var/run/sigsci`
