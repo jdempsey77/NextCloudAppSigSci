@@ -1,5 +1,7 @@
 ## Signal Sciences Docker Configuration - Ubuntu 16.04
 
+[![Build Status](https://travis-ci.org/signalsciences/SigSciDockerExample.svg?branch=master)](https://travis-ci.org/signalsciences/SigSciDockerExample)
+
 This is a dockerized agent with the SigSci Apache Module and Apache2. This container is set up to take environment variables for the Access Key and Secret Key. You can use a pre-built container or build your own. When building and deploying I tend to use the agent version followed by the SigSci module version for the tag.
 
 ## Information about the files
