@@ -1,5 +1,7 @@
 ## Signal Sciences Docker Configuration - Ubuntu 16.04
 
+[![Build Status](https://travis-ci.org/signalsciences/SigSciDockerExample.svg?branch=master)](https://travis-ci.org/signalsciences/SigSciDockerExample)
+
 This is a dockerized agent with the SigSci Apache Module and Apache2. This container is set up to take environment variables for the Access Key and Secret Key. You can use a pre-built container or build your own. When building and deploying I tend to use the agent version followed by the SigSci module version for the tag.
 
 ## Information about the files
@@ -20,7 +22,7 @@ For people using systemctl, i.e. not Kubernetes, I've made an example service th
 The included dockerfile is my example for creating a container that has Apache2, with the SignalSciences Module enabled, and our Signal Sciences Agent.
 
 **Makefile**
-I tend to prefer nice easy command for doing my tasks in building, deploying, and testing locally. The makefile simplifies this process but is not neccessary.
+I tend to prefer nice easy command for doing my tasks in building, deploying, and testing locally. The makefile simplifies this process but is not necessary.
 
 **Kubernetes-yaml**
 Folder containing some exported examples of a Deployment, Service, and Pod.
