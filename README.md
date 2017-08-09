@@ -20,7 +20,7 @@ For people using systemctl, i.e. not Kubernetes, I've made an example service th
 The included dockerfile is my example for creating a container that has Apache2, with the SignalSciences Module enabled, and our Signal Sciences Agent.
 
 **Makefile**
-I tend to prefer nice easy command for doing my tasks in building, deploying, and testing locally. The makefile simplifies this process but is not neccessary.
+I tend to prefer nice easy command for doing my tasks in building, deploying, and testing locally. The makefile simplifies this process but is not necessary.
 
 **Kubernetes-yaml**
 Folder containing some exported examples of a Deployment, Service, and Pod.
