@@ -2,4 +2,4 @@ install:
         curl -L https://git.io/misspell | bash
 
 script:
-        misspell .
+        ./bin/misspell .
