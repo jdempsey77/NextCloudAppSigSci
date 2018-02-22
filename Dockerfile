@@ -1,10 +1,25 @@
 # Dockerfile example for debian Signal Sciences agent container
 
-FROM ubuntu:xenial
-MAINTAINER Signal Sciences Corp. 
+#FROM ubuntu:xenial
+FROM nextcloud:apache
+MAINTAINER Jerry Dempsey <jerry@stylee.org>
+
+RUN set -exu && \
+mkdir -p /etc/dpkg/dpkg.conf.d && \
+touch /etc/dpkg/dpkg.conf.d/01_nodoc && \
+for e in doc-base doc groff info linda lintian man;\
+  do echo "path-exclude /usr/share/${e}/*" >> /etc/dpkg/dpkg.conf.d/01_nodoc;\
+done && \
+export DEBIAN_FRONTEND=noninteractive && \
+apt-get update -qq && \
+apt-get install -qqyu --auto-remove --no-install-recommends --no-install-suggests apt-transport-https && \
+rm -r /var/lib/apt/lists/* /etc/dpkg/dpkg.conf.d/
 
 COPY contrib/sigsci-release.list /etc/apt/sources.list.d/sigsci-release.list
-RUN  apt-get update; apt-get install -y apt-transport-https curl ; curl -slL https://apt.signalsciences.net/gpg.key | apt-key add -; apt-get update; apt-get install -y sigsci-agent sigsci-module-apache apache2;  apt-get clean; /usr/sbin/a2enmod signalsciences; mkdir /var/lock/apache2
+RUN apt-get update
+RUN apt-get install -y curl
+
+RUN curl -slL https://apt.signalsciences.net/gpg.key | apt-key add -; apt-get update; apt-get install -y sigsci-agent sigsci-module-apache apache2;  apt-get clean; /usr/sbin/a2enmod signalsciences 
 COPY contrib/index.html /var/www/html/index.html
 COPY contrib/signalsciences.png /var/www/html/signalsciences.png
 
