@@ -1,4 +1,0 @@
-# Signal Scicences Module
-LoadModule signalsciences_module /usr/lib/apache2/modules/mod_signalsciences.so
-
-
