@@ -15,11 +15,11 @@ apt-get update -qq && \
 apt-get install -qqyu --auto-remove --no-install-recommends --no-install-suggests apt-transport-https && \
 rm -r /var/lib/apt/lists/* /etc/dpkg/dpkg.conf.d/
 
+RUN apt-get update
+RUN apt-get install -y curl gnupg
+
 RUN curl -slL https://apt.signalsciences.net/gpg.key | apt-key add -
 RUN echo "deb https://apt.signalsciences.net/release/ubuntu/ xenial main" > /etc/apt/sources.list.d/sigsci-release.list
-
-RUN apt-get update
-RUN apt-get install -y curl
 
 RUN apt-get update; apt-get install -y sigsci-agent sigsci-module-apache apache2;  apt-get clean; /usr/sbin/a2enmod signalsciences 
 
